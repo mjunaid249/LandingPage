@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+/*------------- Universal Styling ------------------ */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+/* body {
+} */
+:root {
+  --primary-color: #000839;
+  --primary-shades: #00020b;
+  --para-color: #80849c;
+  --helper-color: #1264fa;
+  --white: #fff;
+}
+
+a {
+  display: inline-block;
+}
+img {
+  display: inline-block;
+  width: 100%;
+}
+h1,
+h2,
+h3 {
+  color: var(--primary-color);
+}
+.para {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  font-weight: 400;
+  color: var(--para-color);
+}
+
+/*------------------ Header -------------------------- */
+
+.header {
+  height: 7.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 4rem;
+}
+.logo {
+  font-weight: bold;
+  font-size: 2.3rem;
+  color: var(--helper-color);
+}
+.navbar-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  font-size: 1.5rem;
+  transition: all 0.3s linear;
+}
+
+.navbar-btn {
+  padding: 1.2rem 2.4rem;
+  background: var(--white);
+  border: 1px solid var(--helper-color);
+  color: var(--helper-color);
+  transition: 0.3s linear;
+  border-radius: 10rem;
+}
+.navbar-btn:hover,
+.navbar-btn:active {
+  color: var(--white);
+  background-color: var(--helper-color);
+}
+.navbar-list,
+.navbar-link:hover,
+.navbar-list,
+.navbar-link:active {
+  color: var(--helper-color);
+}
+.navbar-link {
+  text-transform: uppercase;
+}
+.mobile-navbar-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-navbar-btn {
+  display: none;
+}
+.mobile-navbar-icon[name="close-outline"] {
+  display: none;
+}
+/*------------------------ Utility Classes --------------------- */
+.section {
+  padding: 9.4rem 0;
+}
+.grid {
+  display: grid;
+  gap: 8rem;
+}
+
+.grid-two-column {
+  grid-template-columns: repeat(2, 1fr);
+}
+.btn-hero {
+  padding: 1.2rem 2.4rem;
+
+  border: 1px solid var(--helper-color);
+  color: var(--helper-color);
+  transition: 0.3s linear;
+  border-radius: 10rem;
+  font-size: 1.6rem;
+  background-color: var(--helper-color);
+  color: var(--white);
+}
+.btn-hero:hover,
+.btn-hero:active {
+  background: var(--white);
+  color: #1264fa;
+}
+.container {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+/* ----------------------Hero Section--------------------  */
+
+/* -------------------------------- 
+        Left Side 
+---------------------------------- */
+.section-hero {
+  position: relative;
+}
+
+.primary-heading {
+  font-size: 5rem;
+  color: var(--primary-color);
+}
+.section-hero .para {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+.hero-icons {
+  margin-top: 4rem;
+}
+.hero-icons .icon {
+  font-size: 4rem;
+  position: relative;
+}
+.hero-icons .icon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60%;
+  width: 60%;
+  opacity: 0.7;
+  background: var(--helper-color);
+  border-radius: 50%;
+}
+.hero-icons .hero-icon-style .para {
+  line-height: 1.5;
+  font-size: 1.3rem;
+}
+
+/* -------------------------------- 
+        Right Side 
+---------------------------------- */
+
+.hero-image {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  justify-content: center;
+}
+.hero-image img {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 80%;
+}
+/* -------------------------------- 
+--------------------
+        Responsive Design For Other Devices 
+        --------------
+---------------------------------- */
+
+@media (max-width: 1280px) {
+  .container {
+    padding: 0 4rem;
+  }
+  html {
+    font-size: 57%;
+  }
+}
+@media (max-width: 980px) {
+  .container {
+    max-width: 96rem;
+  }
+  html {
+    font-size: 57%;
+  }
+  .section-hero .grid-two-column {
+    grid-template-columns: 1fr;
+  }
+  .section-hero .hero-icons .grid-two-column {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%);
+    transition: all 0.3s linear;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .navbar .navbar-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .navbar .navbar-list .navbar-link {
+    color: var(--white);
+  }
+  .mobile-navbar-btn {
+    display: block;
+  }
+  .active .navbar {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .active .mobile-navbar-btn .mobile-navbar-icon[name="close-outline"] {
+    display: block;
+    color: var(--white);
+  }
+  .active .mobile-navbar-btn .mobile-navbar-icon[name="menu-outline"] {
+    display: none;
+    color: var(--white);
+  }
+  .header {
+    z-index: 999;
+  }
+}
